@@ -6,7 +6,7 @@
 var option = "";
 var dataSet ;
 
-
+// Initializes the page with a default plot function init
 function init() {
 
   d3.json("samples.json").then(function(data){
@@ -18,6 +18,7 @@ function init() {
     displayHBarChart(940,dataSet);
     displayBubbleChart(940,dataSet);
 
+    //use D3 to select the dropdown menu
     var optionMenu = d3.select("#selDataset");
 
     data.names.forEach(function(name){
@@ -34,12 +35,12 @@ function unpack(rows, index) {
 
 function optionChanged(value) {
     option = value;
-    displayMetaData(option,dataSet);
-    displayHBarChart(option,dataSet);
-    displayBubbleChart(option,dataSet);
+    displayMetaData(option, dataSet);
+    displayHBarChart(option, dataSet);
+    displayBubbleChart(option, dataSet);
 }
 
-function displayMetaData(option,dataSet) {
+function displayMetaData(option, dataSet) {
     
     
     var mtdata = dataSet.metadata.filter(row => row.id == option);
@@ -59,7 +60,7 @@ function displayObject(obj) {
     });
     return str;
 }
-
+// show bar chart
 function displayHBarChart(option,dataSet) {
     
     var barData = dataSet.samples.filter(sample => sample.id == option);
@@ -100,7 +101,7 @@ function displayHBarChart(option,dataSet) {
     
     Plotly.newPlot("bar",data,layout);
 }
-
+//show bubble chart
 function displayBubbleChart(option,dataSet) {
 
     var barData = dataSet.samples.filter(sample => sample.id == option);

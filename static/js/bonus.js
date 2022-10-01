@@ -1,3 +1,4 @@
+//bonus guage chart
 function buildGauge(wfreq) {
     
     var level = parseFloat(wfreq) * 20;
@@ -34,6 +35,7 @@ function buildGauge(wfreq) {
         text: ["8-9", "7-8", "6-7", "5-6", "4-5", "3-4", "2-3", "1-2", "0-1", ""],
         textinfo: "text",
         textposition: "inside",
+        //set colors
         marker: {
           colors: [
             "rgba(0, 105, 11, .5)",
@@ -48,6 +50,7 @@ function buildGauge(wfreq) {
             "rgba(255, 255, 255, 0)"
           ]
         },
+        //set labels
         labels: ["8-9", "7-8", "6-7", "5-6", "4-5", "3-4", "2-3", "1-2", "0-1", ""],
         hoverinfo: "label",
         hole: 0.5,
